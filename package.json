@@ -1,0 +1,31 @@
+{
+  "name": "thron-memory",
+  "version": "0.1.0",
+  "description": "One private memory for all your AI agents, on your laptop and your phone. A tiny MCP server with zero dependencies.",
+  "type": "module",
+  "bin": {
+    "thron-memory": "bin/cli.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "mcp",
+    "memory",
+    "claude",
+    "codex",
+    "ai-agents",
+    "model-context-protocol",
+    "markdown"
+  ],
+  "license": "MIT"
+}
