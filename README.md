@@ -3,6 +3,7 @@
 </p>
 
 <p align="center">
+  <a href="https://www.npmjs.com/package/thron-memory"><img alt="npm" src="https://img.shields.io/npm/v/thron-memory?style=flat-square&labelColor=04070a&color=8fdbe3"></a>
   <a href="LICENSE"><img alt="MIT license" src="https://img.shields.io/badge/license-MIT-8fdbe3?style=flat-square&labelColor=04070a"></a>
   <img alt="Zero dependencies" src="https://img.shields.io/badge/dependencies-0-8fdbe3?style=flat-square&labelColor=04070a">
   <img alt="Works with any MCP app" src="https://img.shields.io/badge/MCP-any%20app-8fdbe3?style=flat-square&labelColor=04070a">
