@@ -1,0 +1,32 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.jacobbarglof/thron-memory",
+  "title": "thron-memory",
+  "description": "One private memory for all your AI apps, on your phone and computer. Part of ThronOS.",
+  "websiteUrl": "https://github.com/jacobbarglof/thron-memory",
+  "repository": {
+    "url": "https://github.com/jacobbarglof/thron-memory",
+    "source": "github",
+    "id": "1457138625"
+  },
+  "version": "0.2.1",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "thron-memory",
+      "version": "0.2.1",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "THRON_MEMORY_DIR",
+          "description": "Folder for your memory pages. Default: thron-memory in your home folder.",
+          "isRequired": false,
+          "isSecret": false,
+          "format": "filepath"
+        }
+      ]
+    }
+  ]
+}
