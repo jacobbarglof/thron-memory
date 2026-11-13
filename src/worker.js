@@ -208,7 +208,7 @@ export class MemoryStore {
     const link = (token) => `${origin}/mcp/${token}`;
 
     if (action === "claim") {
-      if (cli) return json({ error: "This memory was set up from the command line. On that computer, run: npx -y github:jacobbarglof/thron-memory url" }, 409);
+      if (cli) return json({ error: "This memory was set up from the command line. On that computer, run: npx -y thron-memory url" }, 409);
       if (claimed) return json({ error: "Your memory is already set up. Use \"Show my link\" instead." }, 409);
       if (!envPassword) return json({ error: "No password was set when this was deployed. In Cloudflare, open this Worker, go to Settings > Variables and Secrets, add a secret named MEMORY_PASSWORD, then try again." }, 409);
       if (!sameSecret(await sha256hex(password), await sha256hex(envPassword))) return wrong();

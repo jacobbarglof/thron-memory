@@ -2,7 +2,7 @@
   "manifest_version": "0.3",
   "name": "thron-memory",
   "display_name": "Memory (thron-memory)",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "One private memory for your AI apps. Stored as files on this computer; nothing leaves it.",
   "long_description": "Claude remembers what matters to you across chats: people, projects, preferences, decisions and deadlines. Memory is a folder of plain Markdown pages on this computer. Old facts move to History instead of being deleted, and passwords or keys are refused. Want the same memory on your phone and in other AI apps like ChatGPT? See the project page.",
   "author": { "name": "Jacob Barglof", "url": "https://github.com/jacobbarglof" },

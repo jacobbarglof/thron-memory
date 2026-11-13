@@ -162,7 +162,7 @@ a { color:var(--c); }
     claimed = s.claimed;
     if (s.cli) {
       $("pw-title").textContent = "This memory was set up from the command line";
-      $("pw-help").textContent = "To see your link, run this on the computer you set it up from: npx -y github:jacobbarglof/thron-memory url";
+      $("pw-help").textContent = "To see your link, run this on the computer you set it up from: npx -y thron-memory url";
       $("pw-form").hidden = true;
     } else if (!s.claimed) {
       $("pw-title").textContent = "Step 1: Create your memory";

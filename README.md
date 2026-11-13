@@ -75,7 +75,7 @@ Done. Your memory is saved as notes in a folder called `thron-memory` in your ho
 Paste this into Claude Code, Codex, Gemini CLI, Cursor or any agent that can run commands:
 
 ```text
-Install thron-memory for me: run `npx -y github:jacobbarglof/thron-memory setup` and tell me what it printed.
+Install thron-memory for me: run `npx -y thron-memory setup` and tell me what it printed.
 ```
 
 It connects every coding app it finds: Claude Code, Codex, Gemini CLI, Cursor, VS Code, Windsurf and Claude Desktop. It needs [Node.js](https://nodejs.org) 18 or newer.
@@ -83,7 +83,7 @@ It connects every coding app it finds: Claude Code, Codex, Gemini CLI, Cursor, V
 Want the same memory on your phone too? Paste this next. It moves your memory into your own free Cloudflare account and keeps everything you already saved:
 
 ```text
-Set up thron-memory for my phone: run `npx -y github:jacobbarglof/thron-memory cloud`. If a Cloudflare sign-in page opens, I'll sign in.
+Set up thron-memory for my phone: run `npx -y thron-memory cloud`. If a Cloudflare sign-in page opens, I'll sign in.
 ```
 
 A small window then shows your private link and where to paste it.
@@ -160,11 +160,11 @@ Good to know:
 **Commands** (Option 3):
 
 ```bash
-npx -y github:jacobbarglof/thron-memory setup    # memory folder + connect coding apps on this computer
-npx -y github:jacobbarglof/thron-memory cloud    # move memory to your Cloudflare account, for phone and web apps
-npx -y github:jacobbarglof/thron-memory url      # show your private link (to you, never to an agent)
-npx -y github:jacobbarglof/thron-memory backup   # copy cloud memory into ~/thron-memory
-npx -y github:jacobbarglof/thron-memory status   # where memory lives
+npx -y thron-memory setup    # memory folder + connect coding apps on this computer
+npx -y thron-memory cloud    # move memory to your Cloudflare account, for phone and web apps
+npx -y thron-memory url      # show your private link (to you, never to an agent)
+npx -y thron-memory backup   # copy cloud memory into ~/thron-memory
+npx -y thron-memory status   # where memory lives
 ```
 
 **Tools** the server gives every app:

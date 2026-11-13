@@ -21,7 +21,7 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, "..");
 const CONFIG = path.join(CONFIG_DIR, "config.json");
 const WIN = process.platform === "win32";
-const RUN = "npx -y github:jacobbarglof/thron-memory"; // how users run commands
+const RUN = "npx -y thron-memory"; // how users run commands
 
 const say = (s = "") => process.stderr.write(s + "\n"); // stdout is reserved for MCP
 const out = (s = "") => process.stdout.write(s + "\n");

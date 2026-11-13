@@ -1,7 +1,17 @@
 {
   "name": "thron-memory",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "One private memory for all your AI apps (ChatGPT, Claude, Gemini, Cursor, Codex and any MCP app), on your computer and your phone.",
+  "mcpName": "io.github.jacobbarglof/thron-memory",
+  "author": "Jacob Barglof (https://github.com/jacobbarglof)",
+  "homepage": "https://github.com/jacobbarglof/thron-memory#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jacobbarglof/thron-memory.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jacobbarglof/thron-memory/issues"
+  },
   "type": "module",
   "bin": {
     "thron-memory": "bin/cli.js"

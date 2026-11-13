@@ -116,6 +116,6 @@ Easiest, no coding, works on phone and computer in any app:
 
 Claude Desktop only, memory kept on the computer: download `thron-memory.mcpb` from the project's latest release and double-click it.
 
-Coding agents (Claude Code, Codex, Gemini CLI, Cursor, VS Code, Windsurf): run `npx -y github:jacobbarglof/thron-memory setup`, then restart the agent. To add a phone later, run `npx -y github:jacobbarglof/thron-memory cloud`.
+Coding agents (Claude Code, Codex, Gemini CLI, Cursor, VS Code, Windsurf): run `npx -y thron-memory setup`, then restart the agent. To add a phone later, run `npx -y thron-memory cloud`.
 
-To copy cloud memory to a folder on the computer, run `npx -y github:jacobbarglof/thron-memory backup`.
+To copy cloud memory to a folder on the computer, run `npx -y thron-memory backup`.
