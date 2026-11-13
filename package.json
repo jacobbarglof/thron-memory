@@ -1,7 +1,7 @@
 {
   "name": "thron-memory",
-  "version": "0.1.0",
-  "description": "One private memory for all your AI agents, on your laptop and your phone. A tiny MCP server with zero dependencies.",
+  "version": "0.2.0",
+  "description": "One private memory for all your AI apps (ChatGPT, Claude, Gemini, Cursor, Codex and any MCP app), on your computer and your phone.",
   "type": "module",
   "bin": {
     "thron-memory": "bin/cli.js"
@@ -18,10 +18,20 @@
   "engines": {
     "node": ">=18"
   },
+  "cloudflare": {
+    "bindings": {
+      "MEMORY_PASSWORD": {
+        "description": "Pick a password for your memory (at least 12 characters). You will type it once on your memory's page to get your private link. **Write it down.**"
+      }
+    }
+  },
   "keywords": [
     "mcp",
     "memory",
+    "chatgpt",
     "claude",
+    "gemini",
+    "cursor",
     "codex",
     "ai-agents",
     "model-context-protocol",

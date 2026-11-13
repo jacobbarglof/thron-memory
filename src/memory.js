@@ -9,7 +9,7 @@ import {
   parse, render, newPage, section, appendLine, validId, toId, today, links, looksSecret,
 } from "./pages.js";
 
-export const VERSION = "0.1.0";
+export const VERSION = "0.2.0";
 
 export const CORE_PAGE = `---
 title: Core rules

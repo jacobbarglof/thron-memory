@@ -109,12 +109,13 @@ The inbox is a page named `inbox`. It holds facts that are not on a proper page 
 
 Say once, briefly, that memory is not connected, and offer these steps. Then carry on with the task without memory. Do not pretend to remember or to have saved anything.
 
-On claude.ai, the Claude phone app or ChatGPT:
-1. On your computer, run `npx -y github:jacobbarglof/thron-memory cloud`. It asks you to sign in to a free Cloudflare account, sets up a private server there, copies up any memory already on the computer, connects the agents on that computer and shows the user a private connector URL in a window.
-2. On claude.ai, open Settings > Connectors > Add custom connector. Name it "Memory" and paste the URL there. Do not paste it into a chat.
-3. The Claude phone app and Claude Desktop then share the same memory.
-4. On ChatGPT, add the same URL as a custom connector in Settings. This needs developer mode, which some plans do not have.
+Easiest, no coding, works on phone and computer in any app:
+1. Open https://github.com/jacobbarglof/thron-memory and click **Deploy to Cloudflare**. Sign in or create a free account, pick a password when asked for MEMORY_PASSWORD, and deploy.
+2. Open the new memory's web address (it ends in workers.dev), enter the password and click **Copy link**.
+3. That page shows where to paste the link for Claude (Settings > Connectors > Add custom connector), ChatGPT (Settings > Apps & Connectors, developer mode) and other apps. Paste it there, never into a chat.
 
-On a laptop with Claude Code, Codex, Cursor or Claude Desktop: run `npx -y github:jacobbarglof/thron-memory setup`, then restart the agent. Memory is then stored as files on that computer.
+Claude Desktop only, memory kept on the computer: download `thron-memory.mcpb` from the project's latest release and double-click it.
+
+Coding agents (Claude Code, Codex, Gemini CLI, Cursor, VS Code, Windsurf): run `npx -y github:jacobbarglof/thron-memory setup`, then restart the agent. To add a phone later, run `npx -y github:jacobbarglof/thron-memory cloud`.
 
 To copy cloud memory to a folder on the computer, run `npx -y github:jacobbarglof/thron-memory backup`.

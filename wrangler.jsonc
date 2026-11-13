@@ -1,0 +1,13 @@
+// Used by the "Deploy to Cloudflare" button. The command-line setup writes its own copy.
+{
+  "name": "thron-memory",
+  "main": "src/worker.js",
+  "compatibility_date": "2025-09-01",
+  "workers_dev": true,
+  // Privacy: do not store request logs.
+  "observability": { "enabled": false },
+  "durable_objects": {
+    "bindings": [{ "name": "MEMORY", "class_name": "MemoryStore" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["MemoryStore"] }]
+}

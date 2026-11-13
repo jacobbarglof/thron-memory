@@ -1,57 +1,105 @@
-# thron-memory
+<p align="center">
+  <img src="assets/banner.svg" alt="thron-memory: one private memory for all your AI apps. Part of ThronOS." width="100%">
+</p>
 
-One private memory for all your AI agents, on your laptop and your phone.
+<p align="center">
+  <a href="LICENSE"><img alt="MIT license" src="https://img.shields.io/badge/license-MIT-8fdbe3?style=flat-square&labelColor=04070a"></a>
+  <img alt="Zero dependencies" src="https://img.shields.io/badge/dependencies-0-8fdbe3?style=flat-square&labelColor=04070a">
+  <img alt="Works with any MCP app" src="https://img.shields.io/badge/MCP-any%20app-8fdbe3?style=flat-square&labelColor=04070a">
+  <img alt="Part of ThronOS" src="https://img.shields.io/badge/part%20of-ThronOS-5ce6f2?style=flat-square&labelColor=04070a">
+</p>
 
-Tell Claude something on your phone. Codex knows it on your laptop an hour later. Nothing to host, no database to run, no account with us (there is no "us").
+**One private memory for all your AI apps.**
 
-- **Private.** Local mode never sends anything anywhere. Cloud mode runs in *your own* free Cloudflare account, encrypted.
-- **Tiny.** Under 1,000 lines of plain JavaScript, zero dependencies. Uses no CPU when idle.
-- **Readable.** Your memory is a folder of Markdown pages you can open, edit and back up.
-- **Safe by default.** Refuses to store passwords and keys. Never deletes: old facts move to History, old versions are kept.
+Tell ChatGPT something on your phone. Claude, Gemini or Cursor knows it on your laptop an hour later. You never repeat yourself again.
 
-## Install (one prompt)
+Works with **ChatGPT, Claude, Gemini CLI, Cursor, VS Code, Windsurf, Codex, Claude Code** and any other app that supports MCP.
 
-Paste this into Claude Code, Codex, Cursor, or any agent that can run commands on your computer:
+<p align="center">
+  <img src="assets/how-it-works.svg" alt="How it works: your phone, laptop and browser use AI apps like ChatGPT, Claude, Gemini and Cursor, which all read and write the same private memory." width="100%">
+</p>
+
+> **What is MCP?** It's the standard plug that lets AI apps use outside tools. If an app's settings mention **Connectors**, **Integrations**, **Tools** or **MCP servers**, your memory works there.
+
+- **Private.** Your memory lives in your own account or on your own computer. There is no company in the middle, not even us.
+- **Free.** No subscription. Runs on Cloudflare's free plan, or on your computer.
+- **Yours.** Your memory is a set of plain notes you can read, download and keep.
+- **Careful.** It refuses to save passwords or keys, and it never deletes: when something changes, the old version is kept.
+
+---
+
+## Set it up (about 5 minutes, no coding)
+
+Pick the one that fits you:
+
+| I want my memory... | Use |
+|---|---|
+| **On my phone and my computer, in any AI app** | [Option 1: Everywhere](#option-1-everywhere-phone-and-computer) |
+| **Only on this computer, in Claude Desktop** (most private) | [Option 2: Claude Desktop](#option-2-claude-desktop-only) |
+| **In my coding tools** (Claude Code, Codex, Cursor, Gemini CLI, VS Code) | [Option 3: Coding agents](#option-3-coding-agents) |
+
+### Option 1: Everywhere (phone and computer)
+
+This gives your memory its own small, private home in a free Cloudflare account. Cloudflare is a large internet company; this uses their free plan and needs no credit card.
+
+1. Click this button:
+
+   [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/jacobbarglof/thron-memory)
+
+2. Sign in to Cloudflare, or create a free account. If it asks you to connect GitHub, create a free GitHub account too (it keeps your copy of the code).
+3. When you see **MEMORY_PASSWORD**, make up a password and **write it down**.
+4. Click **Create and deploy**. Wait about a minute.
+5. Click the web address it shows you (it ends in `workers.dev`). That page is **your memory's home**. Bookmark it.
+6. Type your password. Click **Copy link**.
+7. The page shows you exactly where to paste the link for Claude, ChatGPT and other apps. Do it once per app.
+
+<p align="center">
+  <img src="assets/setup-page.png" alt="Your memory's home page: copy your private link, then follow the steps for Claude, ChatGPT, coding apps or any other app." width="560">
+</p>
+
+Done. Try it: tell one app *"Remember that my favorite color is green,"* then ask a different app or your phone *"What's my favorite color?"*
+
+Come back to your memory's home anytime to connect another app or download a copy of everything it remembers.
+
+### Option 2: Claude Desktop only
+
+Nothing to sign up for. Your memory stays on this computer.
+
+1. Download **[thron-memory.mcpb](https://github.com/jacobbarglof/thron-memory/releases/latest/download/thron-memory.mcpb)**.
+2. Double-click it. Claude Desktop opens. Click **Install**.
+
+Done. Your memory is saved as notes in a folder called `thron-memory` in your home folder.
+
+### Option 3: Coding agents
+
+Paste this into Claude Code, Codex, Gemini CLI, Cursor or any agent that can run commands:
 
 ```text
 Install thron-memory for me: run `npx -y github:jacobbarglof/thron-memory setup` and tell me what it printed.
 ```
 
-Or run it yourself (needs [Node.js](https://nodejs.org) 18 or newer):
+It connects every coding app it finds: Claude Code, Codex, Gemini CLI, Cursor, VS Code, Windsurf and Claude Desktop. It needs [Node.js](https://nodejs.org) 18 or newer.
 
-```bash
-npx -y github:jacobbarglof/thron-memory setup
-```
-
-That creates your memory folder (`~/thron-memory`) and connects every agent it finds on this computer: Claude Code, Codex, Claude Desktop and Cursor. Restart your agent and ask: *"What do you remember about me?"*
-
-## Add your phone (one more prompt)
-
-Phone apps can only reach memory over the internet, so this step puts it in your own Cloudflare account. It is free and needs no credit card.
+Want the same memory on your phone too? Paste this next. It moves your memory into your own free Cloudflare account and keeps everything you already saved:
 
 ```text
 Set up thron-memory for my phone: run `npx -y github:jacobbarglof/thron-memory cloud`. If a Cloudflare sign-in page opens, I'll sign in.
 ```
 
-When it finishes, a small window shows your private connector URL. Then, once:
+A small window then shows your private link and where to paste it.
 
-1. Open **claude.ai > Settings > Connectors > Add custom connector**.
-2. Name it **Memory** and paste the URL.
+---
 
-Done. The Claude app on your phone, claude.ai and Claude Desktop now share one memory with your laptop agents.
+## Make it even smoother (optional)
 
-**ChatGPT:** where your plan allows custom connectors (developer mode), add the same URL as a connector with no authentication.
+The **skill** is a short set of instructions that helps Claude and ChatGPT decide when to check and update your memory.
 
-Lost the window? Run `npx -y github:jacobbarglof/thron-memory url`.
+- **Claude:** download [thron-memory-skill.zip](https://github.com/jacobbarglof/thron-memory/releases/latest/download/thron-memory-skill.zip), then go to **Customize > Skills > Upload**.
+- **ChatGPT** (plans with Skills): **Skills > Create > Upload from your computer**, same file.
 
-## Add the skill (optional, recommended for web and phone)
+Apps without skills still work. Your memory tells every app how to use it as soon as it connects.
 
-The [skill](skill/thron-memory/SKILL.md) teaches agents on claude.ai and ChatGPT when to read and write memory, and how to keep it private. Laptop agents already get the same guidance from the server.
-
-- **claude.ai:** download [`thron-memory-skill.zip`](thron-memory-skill.zip), then **Customize > Skills > Upload**.
-- **ChatGPT** (plans with Skills): **Skills > Create > Upload from your computer**, same zip.
-
-## How it works
+## What your memory looks like
 
 Your memory is a set of short pages, one per person, project or topic:
 
@@ -70,84 +118,98 @@ My manager at Acme.
 - [2026-11-13] was: Prefers morning meetings (2026-10-02, email)
 ```
 
-Agents get six tools:
+Two pages are special:
+
+- **core**: your rules for every AI app. Ask any app to change it, for example *"Add a rule to my memory: never save anything about my health."*
+- **inbox**: notes the app wasn't sure where to put. Apps tidy it up later.
+
+## Privacy
+
+| | Option 1: Everywhere | Option 2: Claude Desktop | Option 3: Coding agents |
+|---|---|---|---|
+| Where it lives | Your own Cloudflare account | Your computer | Your computer (or your Cloudflare account after `cloud`) |
+| Stored encrypted | Yes, including page names | No (plain notes you can open) | Same as the place it lives |
+| Who can read it | Anyone with your private link | Apps on this computer | Apps on this computer |
+| Request logs | Turned off | None | None |
+
+Good to know:
+
+- **Your private link is the key.** Treat it like a password. Paste it only into app settings, never into a chat.
+- **AI apps see what they read.** When ChatGPT or Claude reads a page, that text goes to them like anything else you type. Keep truly secret things out of memory.
+- **Extra privacy for Option 1:** after setup, delete the `MEMORY_PASSWORD` secret in Cloudflare (your memory's home page shows where). Your password still opens your memory's home, and Cloudflare no longer holds anything that can unlock your memory.
+- **Option 3 with `cloud`** is the strictest cloud setup: your private link is made on your computer and Cloudflare only ever sees a fingerprint of it.
+- Your memory's pages are decrypted only briefly, inside your own Cloudflare account, while an app is using them.
+- No tracking, no analytics, nothing sent to us. The code is small so anyone can check it ([`src/`](src)).
+
+## Questions
+
+**Does it cost anything?** No. Cloudflare's free plan covers it easily, and it sleeps when nobody is using it.
+
+**Which apps work?** Any app that can add an MCP server or "custom connector": ChatGPT (developer mode, on plans that have it), Claude (web, desktop and phone), Gemini CLI, Cursor, VS Code, Windsurf, Codex, Claude Code, and more every month.
+
+**I forgot my password.** Open your memory's home and click **I forgot my password**. You can start over with a new one, but that erases the memory, because it was locked with the old password. Download a copy now and then.
+
+**Can I see or edit my memory myself?** Yes. Option 1: click **Download a copy of my memory** on your memory's home. Options 2 and 3: open the `thron-memory` folder in your home folder with any text editor or [Obsidian](https://obsidian.md).
+
+**How do I remove it?** Remove the connector from each app. Option 1: delete the `thron-memory` Worker in your Cloudflare dashboard. Option 2: uninstall the extension in Claude Desktop's settings. Option 3: run `claude mcp remove thron-memory -s user` (and the same for other apps), then delete the `.thron-memory` folder.
+
+---
+
+## For developers
+
+**Commands** (Option 3):
+
+```bash
+npx -y github:jacobbarglof/thron-memory setup    # memory folder + connect coding apps on this computer
+npx -y github:jacobbarglof/thron-memory cloud    # move memory to your Cloudflare account, for phone and web apps
+npx -y github:jacobbarglof/thron-memory url      # show your private link (to you, never to an agent)
+npx -y github:jacobbarglof/thron-memory backup   # copy cloud memory into ~/thron-memory
+npx -y github:jacobbarglof/thron-memory status   # where memory lives
+```
+
+**Tools** the server gives every app:
 
 | Tool | What it does |
 |---|---|
-| `overview` | Start of every task: your rules for agents, a list of pages, the inbox, anything in conflict |
-| `search` | Finds facts and returns short snippets, not whole pages |
+| `overview` | Start of every task: your rules, a list of pages, the inbox, anything in conflict |
+| `search` | Finds facts; returns short snippets, not whole pages |
 | `read` | Reads a page or one section of it |
 | `remember` | Saves a fact to the right page, or to the inbox if unsure |
 | `update_fact` | Changes a fact; the old one moves to History with the date |
 | `write_page` | Rewrites a page (filing the inbox, merging); the old version is kept |
 
-Two special pages:
-
-- **`core`** holds your rules for agents. Edit it to change how they behave, for example *"Always answer in Spanish"* or *"Never save anything about my health."*
-- **`inbox`** collects facts an agent was unsure where to put. Agents file them later.
-
-The ideas come from ThronOS, a personal system where one memory serves every agent: facts live on one page each, changes keep their history, conflicts are flagged for you instead of guessed, and agents write as they work without being asked. This project is just that memory, nothing else.
-
-## Privacy
-
-| | Local mode | Cloud mode |
-|---|---|---|
-| Where pages live | `~/thron-memory` on your computer | A Durable Object (small database) in your own Cloudflare account |
-| Who can read them | You and the agents you connect | Anyone holding your connector URL |
-| At rest | Plain Markdown files | AES-256-GCM encrypted, page names hidden. The key comes from your URL, which Cloudflare never stores (it keeps only a hash) |
-| Logs | None | Request logging turned off |
-| Works offline | Yes | No |
-
-Details worth knowing:
-
-- **Your AI provider sees what agents read.** When Claude or ChatGPT reads a page, that text goes to them like anything else in the chat. Keep truly secret things out of memory.
-- **Treat the connector URL like a password.** It is shown to you, never printed into an agent's output. Rotate it: run `backup`, delete `token` in `~/.thron-memory/config.json`, run `cloud` again.
-- **While a request runs,** the Cloudflare Worker decrypts pages in memory to search them. If that is too much, stay in local mode.
-- **Secrets are refused.** Text that looks like a password, API key, token, card or ID number is not saved. This is a pattern check, not a guarantee.
-- No telemetry, no analytics, no calls home. Read the code: it is small on purpose ([`src/`](src)).
-
-## Commands
-
-```bash
-npx -y github:jacobbarglof/thron-memory setup    # memory folder + connect agents on this computer
-npx -y github:jacobbarglof/thron-memory cloud    # add your phone (your Cloudflare account)
-npx -y github:jacobbarglof/thron-memory url      # show your private connector URL
-npx -y github:jacobbarglof/thron-memory backup   # copy cloud memory into ~/thron-memory
-npx -y github:jacobbarglof/thron-memory status   # where memory lives
-```
-
-Setup copies the server into `~/.thron-memory/app`, so agents start it from disk with no network. Run `setup` again to update.
-
-## Connect other agents
-
-Any MCP client works. Local (stdio), after running `setup` once (use your real home folder path):
+**Connect any MCP client by hand.** Remote (Streamable HTTP): use your private link, or `https://<your-worker>.workers.dev/mcp` with the header `Authorization: Bearer <token>`. Local (stdio), after running `setup` once:
 
 ```json
 { "mcpServers": { "thron-memory": { "command": "node", "args": ["/Users/you/.thron-memory/app/bin/cli.js"] } } }
 ```
 
-Cloud (Streamable HTTP): use your connector URL, or `https://<your-worker>.workers.dev/mcp` with the header `Authorization: Bearer <token>`.
+**How it's built.** Under 1,500 lines of plain JavaScript, zero dependencies.
 
-## FAQ
+- `src/memory.js`: the memory and its six tools.
+- `src/mcp.js`: the MCP protocol.
+- `src/local.js`: the file store.
+- `src/worker.js`: the encrypted Cloudflare store. It uses AES-256-GCM with HKDF-derived keys, and page names are hidden with HMAC.
+- `src/page.js`: your memory's home page.
+- `bin/cli.js`: the commands.
+- `desktop/manifest.json`: the Claude Desktop extension.
 
-**What does it cost?** Nothing. Local mode is your own disk. Cloud mode fits easily in Cloudflare's free plan, and the server sleeps when nobody uses it.
+Run `npm test`. Run `node scripts/build.mjs` to build the release downloads. Run `python assets/make_visuals.py` to rebuild the images; they use the ThronOS mark and its Saira and Fira Mono fonts, which are under the SIL Open Font License ([`assets/fonts`](assets/fonts)).
 
-**Can I edit memory myself?** Yes. Open `~/thron-memory` in any editor or [Obsidian](https://obsidian.md). In cloud mode, run `backup` first to get a fresh copy; edits you make locally are not pushed back automatically.
+## Part of ThronOS
 
-**What if I lose the URL?** It is saved on the computer that ran `cloud`, in `~/.thron-memory/config.json`. If that is gone too, the cloud copy cannot be decrypted. Run `backup` now and then.
+<img src="assets/logo-mark.svg" alt="ThronOS" width="56" align="left">
 
-**Uninstall?** Remove `thron-memory` from your agents (`claude mcp remove thron-memory -s user`, `codex mcp remove thron-memory`), delete `~/.thron-memory`, and for cloud mode delete the `thron-memory` Worker in the Cloudflare dashboard. Your pages stay in `~/thron-memory` until you delete them.
+thron-memory is one small part of **ThronOS**, the larger internal system I built to run my own agents across my computers and phone. ThronOS also handles to-dos, scheduling, jobs that run across machines, devices and voice; it stays private. This repo opens up just its memory, so anyone can give their AI apps one memory they own.
 
-## Develop
+The ideas carry over directly:
+- Every fact lives on one page.
+- Changes keep their history.
+- Conflicts are flagged for you instead of guessed.
+- Agents write as they work, without being asked.
 
-```bash
-git clone https://github.com/jacobbarglof/thron-memory
-cd thron-memory
-npm test
-```
-
-`src/memory.js` is the memory and its tools, `src/mcp.js` the protocol, `src/local.js` the file store, `src/worker.js` the encrypted cloud store, `bin/cli.js` the commands.
+<br clear="left">
 
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE). Use it, change it, share it.

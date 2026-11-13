@@ -1,0 +1,43 @@
+{
+  "manifest_version": "0.3",
+  "name": "thron-memory",
+  "display_name": "Memory (thron-memory)",
+  "version": "0.2.0",
+  "description": "One private memory for your AI apps. Stored as files on this computer; nothing leaves it.",
+  "long_description": "Claude remembers what matters to you across chats: people, projects, preferences, decisions and deadlines. Memory is a folder of plain Markdown pages on this computer. Old facts move to History instead of being deleted, and passwords or keys are refused. Want the same memory on your phone and in other AI apps like ChatGPT? See the project page.",
+  "author": { "name": "Jacob Barglof", "url": "https://github.com/jacobbarglof" },
+  "repository": { "type": "git", "url": "https://github.com/jacobbarglof/thron-memory" },
+  "homepage": "https://github.com/jacobbarglof/thron-memory",
+  "license": "MIT",
+  "keywords": ["memory", "notes", "privacy", "markdown"],
+  "server": {
+    "type": "node",
+    "entry_point": "bin/cli.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/bin/cli.js"],
+      "env": { "THRON_MEMORY_DIR": "${user_config.memory_folder}" }
+    }
+  },
+  "user_config": {
+    "memory_folder": {
+      "type": "directory",
+      "title": "Memory folder",
+      "description": "Where your memory pages are saved. The default is fine for most people.",
+      "default": "${HOME}/thron-memory",
+      "required": false
+    }
+  },
+  "tools": [
+    { "name": "overview", "description": "Your rules for agents and a list of everything remembered" },
+    { "name": "search", "description": "Find remembered facts" },
+    { "name": "read", "description": "Read one memory page" },
+    { "name": "remember", "description": "Save a fact" },
+    { "name": "update_fact", "description": "Change a fact and keep the old one in History" },
+    { "name": "write_page", "description": "Reorganize a page (old version kept)" }
+  ],
+  "compatibility": {
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": { "node": ">=18.0.0" }
+  }
+}

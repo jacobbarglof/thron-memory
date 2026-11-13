@@ -104,13 +104,26 @@ async function connectAgents(target = {}) {
     done.push(target.url ? "Claude Desktop (uses your claude.ai connector now)" : "Claude Desktop (restart it)");
   }
 
-  const cursorDir = path.join(os.homedir(), ".cursor");
-  if (existsSync(cursorDir)) {
-    await editJson(path.join(cursorDir, "mcp.json"), (d) => {
-      d.mcpServers ||= {};
-      d.mcpServers[NAME] = target.url ? { url: target.url } : { command: local.command, args: local.args };
-    });
-    done.push("Cursor");
+  // Apps configured by a JSON file: [label, folder that shows it is installed, file, how to write the entry]
+  const home = os.homedir();
+  const vscodeUser = WIN ? path.join(process.env.APPDATA || "", "Code", "User")
+    : process.platform === "darwin" ? path.join(home, "Library", "Application Support", "Code", "User")
+    : path.join(home, ".config", "Code", "User");
+  const stdio = { command: local.command, args: local.args };
+  const fileApps = [
+    ["Cursor", path.join(home, ".cursor"), "mcp.json", (d) => { (d.mcpServers ||= {})[NAME] = target.url ? { url: target.url } : stdio; }],
+    ["Gemini CLI", path.join(home, ".gemini"), "settings.json", (d) => { (d.mcpServers ||= {})[NAME] = target.url ? { httpUrl: target.url } : stdio; }],
+    ["Windsurf", path.join(home, ".codeium", "windsurf"), "mcp_config.json", (d) => { (d.mcpServers ||= {})[NAME] = target.url ? { serverUrl: target.url } : stdio; }],
+    ["VS Code", vscodeUser, "mcp.json", (d) => { (d.servers ||= {})[NAME] = target.url ? { type: "http", url: target.url } : { type: "stdio", ...stdio }; }],
+  ];
+  for (const [label, dir, file, write] of fileApps) {
+    if (!existsSync(dir)) continue;
+    try {
+      await editJson(path.join(dir, file), write);
+      done.push(label);
+    } catch {
+      done.push(`${label} (skipped: could not read ${file}; add it by hand, see README)`);
+    }
   }
   return done;
 }
